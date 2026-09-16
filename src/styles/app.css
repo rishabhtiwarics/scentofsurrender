@@ -447,9 +447,9 @@ img {
     height: 104px;
     border-radius: 12px;
     overflow: hidden;
-    border: 2px solid rgba(236, 231, 217, .85);
+    border: 2px solid transparent;
     box-shadow: 0 10px 24px rgba(0, 0, 0, .45);
-    background: #111;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold)) border-box;
     flex-shrink: 0;
     order: 2;
     transition: width .45s ease, height .45s ease, transform .45s ease, margin .45s ease, order .45s ease
@@ -458,7 +458,8 @@ img {
 .hero-thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover
+    object-fit: cover;
+    border-radius: 10px
 }
 
 .hero-thumb--left {
@@ -1447,10 +1448,53 @@ img {
 }
 
 .footer {
+    position: relative;
     background: #fff;
     color: #0c1411
 }
 
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 1px;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    pointer-events: none
+}
+
+.footer__to-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 3;
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    color: #0c1411;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, .92), 0 14px 30px rgba(12, 20, 17, .22);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: transform .25s ease, box-shadow .25s ease, color .25s ease
+}
+
+.footer__to-top:hover {
+    color: #0c1411;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, .92), 0 18px 36px rgba(12, 20, 17, .28);
+    transform: translate(-50%, -55%)
+}
+
+.footer__to-top svg {
+    width: 22px;
+    height: 22px
+}
 .footer__brand-block,
 .footer__bottom-block {
     background: #0c1411;
@@ -1813,12 +1857,21 @@ img {
     }
 
     .footer__bottom-inner {
-        align-items: flex-start;
-        flex-direction: column
+        align-items: center;
+        flex-direction: column;
+        text-align: center
     }
 
     .footer__bottom-inner p {
-        text-align: left
+        text-align: center
+    }
+
+    .footer__legal-links {
+        justify-content: center
+    }
+
+    .footer__panel--contact {
+        display: none
     }
 }
 
@@ -1998,6 +2051,11 @@ img {
         height: 100%;
         object-fit: cover;
         object-position: center top
+    }
+
+    .new-arrival-card-btn.btn-view,
+    .new-arrival-card-kicker {
+        display: none
     }
 
     .header-fixed {
@@ -3553,7 +3611,7 @@ img {
 .footer__info-block {
     background: rgb(246, 243, 236);
     color: #0c1411;
-    border-top: 1px solid rgba(200, 162, 78, .22)
+    border-top: 0
 }
 
 .footer__info-inner {
@@ -3672,11 +3730,30 @@ img {
     .footer__info-inner {
         grid-template-columns: 1fr 1fr;
         gap: 32px 24px;
-        padding: 42px 20px 48px
+        padding: 42px 20px 48px;
+        text-align: center
     }
 
-    .footer__panel--brand {
+    .footer__panel {
+        justify-items: center
+    }
+
+    .footer__panel--brand,
+    .footer__panel--available {
         grid-column: 1 / -1
+    }
+
+    .footer__panel--brand .footer__copy {
+        margin-inline: auto
+    }
+
+    .footer__panel--brand .footer__socials {
+        justify-content: center
+    }
+
+    .footer__panel--available .footer__marketplaces {
+        width: min(100%, 360px);
+        grid-template-columns: repeat(2, minmax(0, 1fr))
     }
 }
 
@@ -3804,6 +3881,23 @@ img {
     transform: translateX(0);
 }
 
+.menu-sidebar::before,
+.cart-sidebar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: inherit
+}
+
+.menu-sidebar::before {
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold)) top left / calc(100% - 24px) 2px no-repeat, linear-gradient(135deg, var(--gold-soft), var(--gold)) bottom left / calc(100% - 24px) 2px no-repeat, linear-gradient(135deg, var(--gold-soft), var(--gold)) right 24px / 2px calc(100% - 48px) no-repeat, radial-gradient(circle at 0 100%, transparent 23px, var(--gold) 24px, var(--gold-soft) 25px, transparent 26px) top right / 24px 24px no-repeat, radial-gradient(circle at 0 0, transparent 23px, var(--gold-soft) 24px, var(--gold) 25px, transparent 26px) bottom right / 24px 24px no-repeat
+}
+
+.cart-sidebar::before {
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold)) top right / calc(100% - 24px) 2px no-repeat, linear-gradient(135deg, var(--gold-soft), var(--gold)) bottom right / calc(100% - 24px) 2px no-repeat, linear-gradient(135deg, var(--gold-soft), var(--gold)) left 24px / 2px calc(100% - 48px) no-repeat, radial-gradient(circle at 100% 100%, transparent 23px, var(--gold-soft) 24px, var(--gold) 25px, transparent 26px) top left / 24px 24px no-repeat, radial-gradient(circle at 100% 0, transparent 23px, var(--gold) 24px, var(--gold-soft) 25px, transparent 26px) bottom left / 24px 24px no-repeat
+}
 /* Top Div: rgb(246, 243, 236) with Logo & Close button */
 .menu-sidebar__top {
     background-color: rgb(246, 243, 236);

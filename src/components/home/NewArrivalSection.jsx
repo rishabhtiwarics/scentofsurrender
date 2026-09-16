@@ -1,23 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProductCard from "../shop/ProductCard.jsx";
 import { products } from "../../data/assets.js";
-import { ArrowIcon } from "../icons/Icons.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ARRIVALS = products.slice(0, 4).map((product, index) => ({
-  ...product,
-  id: product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-  note: [
-    "A luminous alcohol-free signature with a rich golden trail.",
-    "Smoky depth, polished spice, and a midnight-smooth finish.",
-    "Velvet oud softened with warm amber and quiet sophistication.",
-    "A refined signature made for everyday presence.",
-  ][index] || "A long-lasting scent crafted for unforgettable presence.",
-}));
+const ARRIVALS = products.slice(0, 4);
 
 const ARRIVAL_ROWS = Array.from({ length: Math.ceil(ARRIVALS.length / 2) }, (_, index) =>
   ARRIVALS.slice(index * 2, index * 2 + 2)
@@ -83,42 +73,7 @@ export default function NewArrivalSection() {
               {row.map((arrival, arrivalIndex) => {
                 const cardIndex = rowIndex * 2 + arrivalIndex;
 
-                return (
-                  <div className={`new-arrival-card ${cardIndex % 2 === 1 ? "is-reversed" : ""}`} key={arrival.id}>
-                    <div className="new-arrival-card-line" />
-
-                    <div className="new-arrival-card-left">
-                      <div className="new-arrival-card-text">
-                        <span className="new-arrival-card-kicker">{String(cardIndex + 1).padStart(2, "0")}</span>
-                        <h3 className="new-arrival-card-title">{arrival.name}</h3>
-                        <p className="new-arrival-card-price">{arrival.price}</p>
-                        <p className="new-arrival-card-desc">{arrival.note}</p>
-                      </div>
-
-                      <div className="new-arrival-card-btns">
-                        <Link to="/shop" className="new-arrival-card-btn btn-shop" aria-label={`Shop ${arrival.name}`}>
-                          <span>Add To Cart</span>
-                          <ArrowIcon />
-                        </Link>
-                        <Link to="/shop" className="new-arrival-card-btn btn-view" aria-label={`View ${arrival.name}`}>
-                          <span>Shop Now</span>
-                          <ArrowIcon />
-                        </Link>
-                      </div>
-                    </div>
-
-                    <div className="new-arrival-card-image-wrap">
-                      <motion.img
-                        src={arrival.src}
-                        alt={arrival.name}
-                        className="new-arrival-card-img"
-                        loading="lazy"
-                        whileHover={{ scale: 1.04 }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      />
-                    </div>
-                  </div>
-                );
+                return <ProductCard product={arrival} variant="newArrival" index={cardIndex} key={arrival.id} />;
               })}
             </div>
           ))}
@@ -127,4 +82,3 @@ export default function NewArrivalSection() {
     </section>
   );
 }
-

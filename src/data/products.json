@@ -1,0 +1,44 @@
+[
+  {
+    "id": "liquid-gold-eau-de-parfum",
+    "name": "Liquid Gold Eau de Parfum",
+    "price": "Rs. 1,999",
+    "image": "product/product1.webp",
+    "note": "A luminous alcohol-free signature with a rich golden trail."
+  },
+  {
+    "id": "noir-surrender",
+    "name": "Noir Surrender",
+    "price": "Rs. 1,799",
+    "image": "product/product2.webp",
+    "note": "Smoky depth, polished spice, and a midnight-smooth finish."
+  },
+  {
+    "id": "velvet-oud",
+    "name": "Velvet Oud",
+    "price": "Rs. 2,199",
+    "image": "product/product3.webp",
+    "note": "Velvet oud softened with warm amber and quiet sophistication."
+  },
+  {
+    "id": "amber-muse",
+    "name": "Amber Muse",
+    "price": "Rs. 1,699",
+    "image": "product/product4.webp",
+    "note": "A refined signature made for everyday presence."
+  },
+  {
+    "id": "rose-archive",
+    "name": "Rose Archive",
+    "price": "Rs. 1,899",
+    "image": "product/product5.webp",
+    "note": "A long-lasting scent crafted for unforgettable presence."
+  },
+  {
+    "id": "saffron-aura",
+    "name": "Saffron Aura",
+    "price": "Rs. 2,299",
+    "image": "product/product6.webp",
+    "note": "A long-lasting scent crafted for unforgettable presence."
+  }
+]

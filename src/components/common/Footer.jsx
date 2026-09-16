@@ -33,9 +33,20 @@ function PhoneIcon() {
   return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.2 4.5 10 8.6c.3.7.1 1.4-.5 1.8l-1.4 1a11.3 11.3 0 0 0 4.6 4.6l1-1.4c.4-.6 1.2-.8 1.8-.5l4.1 1.8c.8.3 1.1 1.1.9 1.9l-.7 2.3c-.2.7-.9 1.2-1.6 1.2C9.7 21.3 2.7 14.3 2.7 5.8c0-.7.5-1.4 1.2-1.6l2.3-.7c.8-.2 1.6.2 2 1z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" /></svg>;
 }
 
+function TopArrowIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><path d="m6 11 6-6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+}
+
 export default function Footer() {
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="footer">
+      <button className="footer__to-top" type="button" aria-label="Scroll to top" onClick={handleScrollTop}>
+        <TopArrowIcon />
+      </button>
       <div className="footer__info-block">
         <div className="footer__info-inner">
           <div className="footer__panel footer__panel--brand">

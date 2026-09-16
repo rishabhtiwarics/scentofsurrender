@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import ProductCard from "../shop/ProductCard.jsx";
 import { products } from "../../data/assets.js";
 import { ArrowIcon } from "../icons/Icons.jsx";
 
@@ -39,15 +40,7 @@ export default function HeroNewArrivalSection() {
         <div className="hero-arrival-swiper" aria-label="New arrival products">
           <div className="hero-arrival-track" key={activeIndex}>
             {visibleProducts.map((product) => (
-              <article className="hero-arrival-card" key={product.name}>
-                <Link to="/shop" className="hero-arrival-card__image" aria-label={`Shop ${product.name}`}>
-                  <img src={product.src} alt={product.name} loading="lazy" />
-                </Link>
-                <div className="hero-arrival-card__body">
-                  <h3>{product.name}</h3>
-                  <p>{product.price}.00</p>
-                </div>
-              </article>
+              <ProductCard product={product} variant="heroArrival" key={product.id} />
             ))}
           </div>
         </div>
