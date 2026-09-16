@@ -23,3 +23,31 @@ export function MutedIcon({ hidden = false }) {
 export function UnmutedIcon({ hidden = false }) {
   return <svg className="icon-unmuted" viewBox="0 0 24 24" fill="none" style={{ display: hidden ? "none" : "" }}><path d="M4 9.5v5h3.6l4.7 3.9V5.6L7.6 9.5H4z" fill="currentColor" /><path d="M15.8 9.2a4.4 4.4 0 0 1 0 5.6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /><path d="M18.1 6.9a7.8 7.8 0 0 1 0 10.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>;
 }
+export function MenuIcon({ isOpen = false }) {
+  if (isOpen) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+export function CloseIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+export function TrashIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}

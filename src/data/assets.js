@@ -1,4 +1,4 @@
-﻿const assetModules = import.meta.glob("../IMG/**/*", {
+const assetModules = import.meta.glob(["../IMG/*", "../IMG/**/*"], {
   eager: true,
   import: "default",
   query: "?url",
@@ -7,9 +7,21 @@
 export const img = (path) => assetModules[`../IMG/${path}`];
 
 export const heroSlides = [
-  { src: img("bannerhome/bnnrhome1.jpeg"), alt: "SOS Scent of Surrender home banner" },
-  { src: img("bannerhome/bnnrhome2.jpeg"), alt: "SOS Liquid Gold Eau de Parfum" },
-  { src: img("bannerhome/bnnrhome3.jpeg"), alt: "SOS fragrance collection" },
+  {
+    src: img("bannerhome/bnnrhome1.jpeg"),
+    mobileSrc: img("bannerhome/mobilebnnrhome1.jpeg"),
+    alt: "SOS Scent of Surrender home banner",
+  },
+  {
+    src: img("bannerhome/bnnrhome2.jpeg"),
+    mobileSrc: img("bannerhome/mobilebnnrhome2.jpeg"),
+    alt: "SOS Liquid Gold Eau de Parfum",
+  },
+  {
+    src: img("bannerhome/bnnrhome3.jpeg"),
+    mobileSrc: img("bannerhome/mobilebnnrhome3.jpeg"),
+    alt: "SOS fragrance collection",
+  },
 ];
 
 export const products = [

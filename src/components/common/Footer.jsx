@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { img } from "../../data/assets.js";
 
@@ -72,6 +72,7 @@ export default function Footer() {
           <div className="footer__legal-links">
             <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
             <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/refund-policy">Refund Policy</Link>
           </div>
           <p>Copyright © 2026 Scent of Surrender. All rights reserved. / Created By <a href="https://www.launchveda.com/" target="_blank" rel="noreferrer">Launchveda</a></p>
         </div>

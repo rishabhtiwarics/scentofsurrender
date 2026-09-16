@@ -16,5 +16,42 @@ export default function HeroSection() {
     if (diff === 0) return "hero-thumb is-active";
     return diff === -1 ? "hero-thumb hero-thumb--left" : "hero-thumb hero-thumb--right";
   };
-  return <section className="hero" id="hero"><div className="hero-track">{heroSlides.map((slide, index) => <div className={`hero-slide ${index === current ? "is-active" : ""}`} key={slide.src}><img className="hero-img" src={slide.src} alt={slide.alt} /></div>)}</div><div className="hero-content"><div className="hero-left"><Link to="/shop" className="hero-shop-btn"><span>Shop Now</span><ArrowIcon /></Link></div><div className="hero-right"><div className="hero-thumbs">{heroSlides.map((slide, index) => <button type="button" className={thumbClass(index)} key={slide.src} onClick={() => setCurrent(index)}><img src={slide.src} alt={slide.alt} /></button>)}</div></div></div></section>;
+  return (
+    <section className="hero" id="hero">
+      <div className="hero-track">
+        {heroSlides.map((slide, index) => (
+          <div className={`hero-slide ${index === current ? "is-active" : ""}`} key={slide.src}>
+            <picture className="hero-picture">
+              {slide.mobileSrc && (
+                <source media="(max-width: 768px)" srcSet={slide.mobileSrc} />
+              )}
+              <img className="hero-img" src={slide.src} alt={slide.alt} />
+            </picture>
+          </div>
+        ))}
+      </div>
+      <div className="hero-content">
+        <div className="hero-left">
+          <Link to="/shop" className="hero-shop-btn">
+            <span>Shop Now</span>
+            <ArrowIcon />
+          </Link>
+        </div>
+        <div className="hero-right">
+          <div className="hero-thumbs">
+            {heroSlides.map((slide, index) => (
+              <button
+                type="button"
+                className={thumbClass(index)}
+                key={slide.src}
+                onClick={() => setCurrent(index)}
+              >
+                <img src={slide.src} alt={slide.alt} />
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
