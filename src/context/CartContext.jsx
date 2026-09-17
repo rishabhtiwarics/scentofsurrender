@@ -85,6 +85,10 @@ export function CartProvider({ children }) {
     0
   );
 
+  const inCart = (id) => {
+    return cartItems.some((item) => item.id === id);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -100,6 +104,7 @@ export function CartProvider({ children }) {
         updateQuantity,
         removeFromCart,
         addToCart,
+        inCart,
         cartCount,
         cartSubtotal,
       }}

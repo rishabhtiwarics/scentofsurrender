@@ -1,5 +1,7 @@
 import React from "react";
 import InnerBanner from "../components/common/InnerBanner.jsx";
+import OurBeginningSection from "../components/about/OurBeginningSection.jsx";
+import FounderScrollSection from "../components/about/FounderScrollSection.jsx";
 import { img } from "../data/assets.js";
 
 export default function About() {
@@ -8,6 +10,7 @@ export default function About() {
   return (
     <main>
       <InnerBanner title="About Us" />
+      <OurBeginningSection />
       <section className="founder-banner">
         <div className="founder-banner__bg">
           <img src={founderImage} alt="" />
@@ -60,6 +63,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <FounderScrollSection />
     </main>
   );
 }
