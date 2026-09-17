@@ -4890,3 +4890,295 @@ img {
 .footer-watermark__group span {
     padding-right: 40px;
 }
+
+/* ===================== Founder Banner ===================== */
+.founder-banner {
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    padding: 90px 24px;
+}
+
+.founder-banner__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.founder-banner__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    opacity: .30;
+    filter: grayscale(35%);
+}
+
+.founder-banner__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10,13,11,.95) 0%, rgba(10,13,11,.82) 46%, rgba(10,13,11,.55) 100%);
+}
+
+.founder-banner__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.founder-banner__glow--gold {
+    width: 420px;
+    height: 420px;
+    right: -120px;
+    top: -140px;
+    background: radial-gradient(circle, rgba(200,162,78,.30) 0%, rgba(200,162,78,0) 70%);
+}
+
+.founder-banner__glow--dim {
+    width: 360px;
+    height: 360px;
+    left: -100px;
+    bottom: -140px;
+    background: radial-gradient(circle, rgba(200,162,78,.12) 0%, rgba(200,162,78,0) 70%);
+}
+
+.founder-banner__inner {
+    position: relative;
+    z-index: 1;
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .8fr);
+    gap: 56px;
+    align-items: center;
+}
+
+.founder-banner__copy {
+    color: var(--ivory);
+}
+
+.founder-banner__copy h2 {
+    font-size: clamp(26px, 3.4vw, 42px);
+    line-height: 1.16;
+    color: var(--ivory);
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.founder-banner__copy h2 .name {
+    display: block;
+    font-weight: 700;
+    color: var(--gold-soft);
+    margin-top: 6px;
+}
+
+.founder-banner__copy p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(236, 231, 217, .8);
+    max-width: 480px;
+    margin-bottom: 18px;
+}
+
+.founder-banner__quote {
+    margin-top: 22px;
+    padding-left: 20px;
+    border-left: 2px solid var(--gold);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--gold-soft);
+    max-width: 460px;
+}
+
+.founder-banner__signoff {
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.founder-banner__signoff-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.founder-banner__signoff-text strong {
+    display: block;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ivory);
+}
+
+.founder-banner__signoff-text span {
+    font-size: 11.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+}
+
+.founder-banner__frame-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.founder-banner__frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4.5;
+    border-radius: 0 130px 130px 130px;
+    overflow: hidden;
+    border: 1px solid var(--line-gold);
+    background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)) padding-box;
+    box-shadow:
+        0 40px 90px rgba(0, 0, 0, .55),
+        0 0 0 1px rgba(200,162,78,.08),
+        inset 0 0 0 1px rgba(255,255,255,.03);
+}
+
+.founder-banner__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+}
+
+.founder-banner__tick {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid var(--gold);
+    z-index: 3;
+}
+
+.founder-banner__tick--tl {
+    top: -10px;
+    left: -10px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.founder-banner__tag {
+    position: absolute;
+    top: -16px;
+    left: 20px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0c1411;
+    border: 1px solid var(--line-gold);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+
+.founder-banner__tag-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+.founder-banner__signature {
+    position: absolute;
+    left: 50%;
+    bottom: -24px;
+    transform: translateX(-50%);
+    z-index: 4;
+    background: #0c1411;
+    border: 1px solid var(--line-gold);
+    border-radius: 999px;
+    padding: 12px 22px 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, .5);
+    white-space: nowrap;
+}
+
+.founder-banner__signature-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color: #0c1411;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.founder-banner__signature-text strong {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ivory);
+}
+
+.founder-banner__signature-text span {
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+}
+
+@media (max-width: 900px) {
+    .founder-banner {
+        padding: 64px 20px 70px;
+        min-height: auto;
+    }
+    .founder-banner__inner {
+        grid-template-columns: 1fr;
+        gap: 56px;
+        text-align: center;
+    }
+    .founder-banner__copy p,
+    .founder-banner__quote {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .founder-banner__quote {
+        text-align: left;
+    }
+    .founder-banner .section-eyebrow {
+        justify-content: center;
+    }
+    .founder-banner__signoff {
+        justify-content: center;
+    }
+    .founder-banner__frame-wrap {
+        order: -1;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 520px) {
+    .founder-banner {
+        padding: 52px 16px 60px;
+    }
+    .founder-banner__copy h2 {
+        font-size: 25px;
+    }
+    .founder-banner__frame-wrap {
+        max-width: 230px;
+    }
+}
