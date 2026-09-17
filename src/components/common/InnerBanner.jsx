@@ -1,6 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { img } from "../../data/assets.js";
-export default function InnerBanner({ title, eyebrow, text }) {
-  return <section className="inner-banner"><img src={img("bannerhome/bnnrhome2.jpeg")} alt={title} /><div className="inner-banner__overlay"></div><div className="inner-banner__content"><span>{eyebrow}</span><h1>{title}</h1><p>{text}</p></div></section>;
-}
 
+export default function InnerBanner({ title }) {
+  return (
+    <section className="inner-banner">
+      <img src={img("innerbanner.jpeg")} alt={title} />
+      <section className="inner-banner-wrapper">
+        <div className="inner-banner__content">
+          <div className="inner-banner__breadcrumb">
+            <Link to="/">Home</Link>
+            <span>/</span>
+            <span>{title}</span>
+          </div>
+          <h1>{title}</h1>
+        </div>
+      </section>
+    </section>
+  );
+}

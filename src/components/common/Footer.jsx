@@ -43,52 +43,67 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer">
-      <button className="footer__to-top" type="button" aria-label="Scroll to top" onClick={handleScrollTop}>
-        <TopArrowIcon />
-      </button>
-      <div className="footer__info-block">
-        <div className="footer__info-inner">
-          <div className="footer__panel footer__panel--brand">
-            <img className="footer__logo" src={img("SOS_Logo_main.png")} alt="Scent of Surrender" />
-            <p className="footer__copy">Luxury fragrances crafted for quiet confidence, lasting memories, and the art of surrendering to your signature scent.</p>
-            <div className="footer__socials" aria-label="Social links">
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook"><FacebookIcon /></a>
-              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a>
+    <section className="footer-wrapper">
+      <div className="footer-watermark" aria-hidden="true">
+        <div className="footer-watermark__track">
+          <span className="footer-watermark__group">
+            <span>SCENT OF SURRENDER</span>
+            <span>SCENT OF SURRENDER</span>
+            <span>SCENT OF SURRENDER</span>
+          </span>
+          <span className="footer-watermark__group">
+            <span>SCENT OF SURRENDER</span>
+            <span>SCENT OF SURRENDER</span>
+            <span>SCENT OF SURRENDER</span>
+          </span>
+        </div>
+      </div>
+      <footer className="footer">
+        <button className="footer__to-top" type="button" aria-label="Scroll to top" onClick={handleScrollTop}>
+          <TopArrowIcon />
+        </button>
+        <div className="footer__info-block">
+          <div className="footer__info-inner">
+            <div className="footer__panel footer__panel--brand">
+              <img className="footer__logo" src={img("SOS_Logo_main.png")} alt="Scent of Surrender" />
+              <p className="footer__copy">Luxury fragrances crafted for quiet confidence, lasting memories, and the art of surrendering to your signature scent.</p>
+              <div className="footer__socials" aria-label="Social links">
+                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook"><FacebookIcon /></a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a>
+              </div>
             </div>
-          </div>
 
-          <div className="footer__panel footer__panel--contact">
-            <h3>Contact</h3>
-            <a href="https://maps.google.com/?q=India" target="_blank" rel="noreferrer"><LocationIcon /><span>Scent of Surrender, India</span></a>
-            <a href="mailto:care@scentofsurrender.com"><MailIcon /><span>care@scentofsurrender.com</span></a>
-            <a href="tel:+919876543210"><PhoneIcon /><span>+91 98765 43210</span></a>
-          </div>
+            <div className="footer__panel footer__panel--contact">
+              <h3>Contact</h3>
+              <a href="https://maps.google.com/?q=India" target="_blank" rel="noreferrer"><LocationIcon /><span>Scent of Surrender, India</span></a>
+              <a href="mailto:care@scentofsurrender.com"><MailIcon /><span>care@scentofsurrender.com</span></a>
+              <a href="tel:+919876543210"><PhoneIcon /><span>+91 98765 43210</span></a>
+            </div>
 
-          <div className="footer__panel footer__panel--available">
-            <h3>Available At</h3>
-            <div className="footer__marketplaces">
-              {marketplaceLogos.map((logo) => (
-                <a className="footer__marketplace" href="#" key={logo.src} aria-label={logo.alt}>
-                  <img src={logo.src} alt={logo.alt} />
-                </a>
-              ))}
+            <div className="footer__panel footer__panel--available">
+              <h3>Available At</h3>
+              <div className="footer__marketplaces">
+                {marketplaceLogos.map((logo) => (
+                  <a className="footer__marketplace" href="#" key={logo.src} aria-label={logo.alt}>
+                    <img src={logo.src} alt={logo.alt} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <div className="footer__center-watermark" aria-hidden="true">Scent of Surrender</div>
-      </div>
-      <div className="footer__bottom-block">
-        <div className="footer__bottom-inner">
-          <div className="footer__legal-links">
-            <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/refund-policy">Refund Policy</Link>
+        <div className="footer__bottom-block">
+          <div className="footer__bottom-inner">
+            <div className="footer__legal-links">
+              <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
+              <Link to="/privacy-policy">Privacy Policy</Link>
+              <Link to="/refund-policy">Refund Policy</Link>
+            </div>
+            <p>Copyright © 2026 Scent of Surrender. All rights reserved. / Created By <a href="https://www.launchveda.com/" target="_blank" rel="noreferrer">Launchveda</a></p>
           </div>
-          <p>Copyright © 2026 Scent of Surrender. All rights reserved. / Created By <a href="https://www.launchveda.com/" target="_blank" rel="noreferrer">Launchveda</a></p>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </section>
   );
 }
 
