@@ -6467,3 +6467,7 @@ img {
         height: 14px !important;
     }
 }
+/* REMOVE FOUNDER BANNER BG AFTER ELEMENT */
+.founder-banner__bg::after {
+    display: none !important;
+}
