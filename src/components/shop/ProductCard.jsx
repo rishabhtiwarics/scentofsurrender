@@ -10,6 +10,34 @@ export default function ProductCard({ product, variant = "shop", index = 0 }) {
 
   if (!product) return null;
 
+  if (variant === "search") {
+    return (
+      <Link to={`/product/${product.id}`} className="search-result-card">
+        <div className="search-result-img">
+          <img src={product.src} alt={product.name} />
+        </div>
+        <div className="search-result-info">
+          <h4>{product.name}</h4>
+          <span className="search-result-price">₹ {product.price}</span>
+        </div>
+        <button
+          className="search-result-add"
+          aria-label="Add to bag"
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart(product);
+          }}
+        >
+          {inCart && inCart(product.id) ? (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          ) : (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          )}
+        </button>
+      </Link>
+    );
+  }
+
   if (variant === "heroArrival") {
     return (
       <article className="hero-arrival-card">

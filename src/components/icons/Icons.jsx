@@ -2,8 +2,8 @@ import React from "react";
 export function ArrowIcon() {
   return <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
-export function SearchIcon() {
-  return <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.6" /><path d="M20 20L15.8 15.8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>;
+export function SearchIcon({ size = 24, className = "" }) {
+  return <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.6" /><path d="M20 20L15.8 15.8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>;
 }
 export function UserIcon() {
   return <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7.8" r="3.4" stroke="currentColor" strokeWidth="1.6" /><path d="M5 19.2c1.3-3.4 4.1-5.1 7-5.1s5.7 1.7 7 5.1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>;

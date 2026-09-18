@@ -23,6 +23,7 @@ export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
   const [showSticky, setShowSticky] = useState(false);
 
+
   // Mock images based on the main product image (using it repeatedly or variations)
   const images = [product.src, product.src, product.src];
   const selectedImage = images[activeImage];
@@ -64,9 +65,7 @@ export default function ProductDetails() {
     // navigate('/checkout');
   };
 
-  // Mock related products
-  const relatedProducts = products.filter(p => p.id !== product.id).slice(0, 3);
-  
+
   // Prices
   const basePrice100 = 1499;
   const basePrice50 = Math.round(basePrice100 / 2);
@@ -77,6 +76,15 @@ export default function ProductDetails() {
   return (
     <main className="product-details-page">
       <section className="container shop-main-section">
+        {/* Pagination / Breadcrumbs */}
+        <div className="product-pagination">
+          <a href="/">Home</a> 
+          <span>/</span>
+          <a href="/shop">Shop</a>
+          <span>/</span>
+          <span>{product.name}</span>
+        </div>
+
         <div className="product-detail">
           <div className="product-gallery">
             <img className="product-gallery-main" src={selectedImage} alt={product.name} />
@@ -138,15 +146,6 @@ export default function ProductDetails() {
               <p><strong>Top Notes:</strong> Bergamot • Black Pepper • Fresh Citrus</p>
               <p><strong>Heart Notes:</strong> Lavender • Cardamom • Smoky Incense</p>
               <p><strong>Base Notes:</strong> Amber • Patchouli • Sandalwood • Musk • Vanilla</p>
-              
-              <h4>Who Is It For?</h4>
-              <ul className="who-is-it-for-list">
-                <li>Night wear</li>
-                <li>Date nights</li>
-                <li>Parties &amp; Events</li>
-                <li>Winter &amp; Evening fragrance</li>
-                <li>Strong personality men</li>
-              </ul>
             </div>
             
             <div className="product-tags">
@@ -167,20 +166,20 @@ export default function ProductDetails() {
                 Buy Now
               </button>
             </div>
-            
-            <div className="product-benefits">
-              <ProductBenefit icon={ShieldCheck} text="Secure Transaction" />
-              <ProductBenefit icon={Banknote} text="Pay on Delivery" />
-              <ProductBenefit icon={MapPinned} text="Easy Order Tracking" />
-              <ProductBenefit icon={Truck} text="Free Delivery" />
-            </div>
-            
+
             <div className="prepaid-offer">Get extra 5% off on prepaid orders</div>
           </div>
         </div>
-      </section>
 
-      <ProductSection eyebrow="You may also like" title="Related Fragrances" products={relatedProducts} variant="related" />
+        <div className="product-benefits-fullwidth">
+          <ProductBenefit icon={ShieldCheck} text="Secure Transaction" />
+          <ProductBenefit icon={Banknote} text="Pay on Delivery" />
+          <ProductBenefit icon={MapPinned} text="Easy Order Tracking" />
+          <ProductBenefit icon={Truck} text="Free Delivery" />
+        </div>
+
+
+      </section>
       
       <div className={`product-section__sticky-product ${showSticky ? 'show' : ''}`}>
         <div className="container sticky-product-inner">
