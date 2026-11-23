@@ -359,9 +359,9 @@ export default function SheetMask() {
       </div>
 
       {/* --------------------------------------------------------------------
-          Parallax Banner Section (Home Page Scent Parallax Style)
+          Parallax Banner Section (Sheet Mask Specific Parallax)
           -------------------------------------------------------------------- */}
-      <section className="scent-parallax-section">
+      <section className="scent-parallax-section sheetmask-parallax-section">
         <div className="sheetmask-container">
           <div className="scent-parallax-content">
             <span className="scent-parallax-eyebrow">Hydrogel Ritual</span>
