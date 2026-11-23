@@ -41,8 +41,9 @@ export default function Header() {
           </Link>
           <ul className="navbar__links">
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/about">About Us</NavLink></li>
+            <li><NavLink to="/sheet-mask">Sheet Mask</NavLink></li>
             <li><NavLink to="/shop">Catalog</NavLink></li>
+            <li><NavLink to="/about">About Us</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
           </ul>
           <div className="navbar__actions">

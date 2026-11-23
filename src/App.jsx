@@ -7,6 +7,7 @@ import FloatingVideoWidget from "./components/common/FloatingVideoWidget.jsx";
 import MenuSidebar from "./components/common/MenuSidebar.jsx";
 import CartSidebar from "./components/cart/CartSidebar.jsx";
 import Home from "./pages/Home.jsx";
+import SheetMask from "./pages/SheetMask.jsx";
 import Shop from "./pages/Shop.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import About from "./pages/About.jsx";
@@ -31,6 +32,9 @@ export default function App() {
       {!isAuthPage && <CartSidebar />}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/sheet-mask" element={<SheetMask />} />
+        <Route path="/sheetmask" element={<SheetMask />} />
+        <Route path="/arrival" element={<SheetMask />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/about" element={<About />} />

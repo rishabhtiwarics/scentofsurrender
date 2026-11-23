@@ -16,8 +16,9 @@ export default function MenuSidebar() {
 
   const navLinks = [
     { to: "/", label: "Home" },
-    { to: "/about", label: "About Us" },
+    { to: "/sheet-mask", label: "Sheet Mask" },
     { to: "/shop", label: "Catalog" },
+    { to: "/about", label: "About Us" },
     { to: "/contact", label: "Contact" },
   ];
 

@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --bg: #0a0d0b;
     --bg-elevated: #12160f;
     --ivory: #ece7d9;
@@ -2619,28 +2619,31 @@ img {
 
 .scent-parallax-section {
     position: relative;
-    min-height: 520px;
+    min-height: 720px;
     overflow: hidden;
-    background: #f8f5ee url("../IMG/homemdbnner2.jpeg") center/cover fixed no-repeat;
+    background: #f8f5ee url("../IMG/sheetmskdesktopprallex.png") center/cover fixed no-repeat;
     display: flex;
     align-items: center;
-    padding: 76px 24px
+    justify-content: flex-end;
+    padding: 110px 6.4vw;
+    box-sizing: border-box;
 }
 
 .scent-parallax-img {
-    display: none
+    display: none;
 }
 
 .scent-parallax-content {
     position: relative;
-    z-index: 1;
-    width: min(1120px, 100%);
-    margin: 0 auto;
-    color: #0c1411
+    z-index: 2;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 0 0 auto;
+    color: #0c1411;
 }
 
 .scent-parallax-content>* {
-    max-width: 520px
+    max-width: 520px;
 }
 
 .scent-parallax-eyebrow {
@@ -2652,7 +2655,7 @@ img {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: .22em;
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 
 .scent-parallax-eyebrow::before {
@@ -2660,27 +2663,29 @@ img {
     width: 28px;
     height: 1px;
     background: var(--gold);
-    flex-shrink: 0
+    flex-shrink: 0;
 }
 
 .scent-parallax-content h2 {
-    font-size: clamp(24px, 3vw, 38px);
-    line-height: 1.08;
+    font-family: var(--font-serif, 'Cinzel', serif);
+    font-size: clamp(26px, 3.2vw, 40px);
+    line-height: 1.15;
     color: #0c1411;
     margin-bottom: 18px;
-    font-weight: 600
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .scent-parallax-content p {
     font-size: 15.5px;
-    line-height: 1.75;
-    color: #0c1411;
-    margin-bottom: 28px
+    line-height: 1.8;
+    color: #22271f;
+    margin-bottom: 28px;
 }
 
 .scent-parallax-content em {
     font-style: italic;
-    color: #0c1411
+    color: #0c1411;
 }
 
 .scent-parallax-btn {
@@ -2697,34 +2702,37 @@ img {
     font-weight: 600;
     letter-spacing: .05em;
     box-shadow: 0 12px 30px rgba(200, 162, 78, .22);
-    transition: transform .25s ease, box-shadow .25s ease
+    transition: transform .25s ease, box-shadow .25s ease;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
 }
 
 .scent-parallax-btn svg {
     width: 16px;
     height: 16px;
-    transition: transform .25s ease
+    transition: transform .25s ease;
 }
 
 .scent-parallax-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 36px rgba(200, 162, 78, .34)
+    box-shadow: 0 16px 36px rgba(200, 162, 78, .34);
 }
 
 .scent-parallax-btn:hover svg {
-    transform: translateX(3px)
+    transform: translateX(3px);
 }
 
 @media (max-width: 900px) {
     .scent-parallax-section {
         position: relative;
-        min-height: 480px;
+        min-height: 680px;
         overflow: hidden;
-        background: #f8f5ee url("../IMG/mobilehomemdbnner2.jpeg") center top/cover fixed no-repeat;
+        background: #f8f5ee url("../IMG/sheetmaskmobileparallex.png") center top/cover fixed no-repeat;
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        padding: 56px 24px 44px;
+        padding: 65px 5vw 50px;
     }
 
     .scent-parallax-content {
@@ -2763,11 +2771,12 @@ img {
 
 @media (max-width: 520px) {
     .scent-parallax-section {
-        min-height: 440px;
+        min-height: 640px;
         align-items: flex-end;
         justify-content: center;
-        padding: 40px 18px 36px;
-        background: #f8f5ee url("../IMG/mobilehomemdbnner2.jpeg") center top/cover fixed no-repeat;
+        padding: 45px 18px 40px;
+        background: #f8f5ee url("../IMG/sheetmaskmobileparallex.png") center top/cover fixed no-repeat;
+        background-attachment: scroll;
     }
 
     .scent-parallax-content {
