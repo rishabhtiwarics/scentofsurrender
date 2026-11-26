@@ -18,9 +18,9 @@ export default function FounderScrollSection() {
                         <img src={img("founder/Co founder.jpeg")} alt="Co-Founder portrait" />
                     </div>
                     <div className="founder-banner__signature">
-                        <div className="founder-banner__signature-mark" style={{background: 'var(--gold)'}}>AM</div>
+                        <div className="founder-banner__signature-mark" style={{background: 'var(--gold)'}}>AS</div>
                         <div className="founder-banner__signature-text">
-                            <strong>Arjun Malhotra</strong>
+                            <strong>Abhishek Srivastava</strong>
                             <span>Co-Founder</span>
                         </div>
                     </div>

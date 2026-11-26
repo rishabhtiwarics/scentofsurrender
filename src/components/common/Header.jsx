@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { CartIcon, MenuIcon, SearchIcon, UserIcon, ArrowIcon } from "../icons/Icons.jsx";
 import { img, products } from "../../data/assets.js";
 import { useCart } from "../../context/CartContext.jsx";
@@ -9,11 +9,14 @@ import ProductCard from "../shop/ProductCard.jsx";
 export default function Header() {
   const { cartCount, openCart, toggleMenu, isMenuOpen } = useCart();
   const { isLoggedIn, user, logout, login } = useAuth();
+  const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const [isCatalogHovered, setIsCatalogHovered] = useState(false);
   const [isSearchHovered, setIsSearchHovered] = useState(false);
   const [isUserHovered, setIsUserHovered] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const isCatalogActive = pathname === "/shop" || pathname === "/skin-care";
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -40,11 +43,60 @@ export default function Header() {
             <img className="navbar__logo" src={img("Logo.png")} alt="SOS - Scent of Surrender" />
           </Link>
           <ul className="navbar__links">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/sheet-mask">Sheet Mask</NavLink></li>
-            <li><NavLink to="/shop">Catalog</NavLink></li>
+            <li><NavLink to="/" end>Home</NavLink></li>
             <li><NavLink to="/about">About Us</NavLink></li>
-            <li><NavLink to="/contact">Contact</NavLink></li>
+            <li
+              className="catalog-dropdown-wrapper"
+              onMouseEnter={() => setIsCatalogHovered(true)}
+              onMouseLeave={() => setIsCatalogHovered(false)}
+            >
+              <button
+                type="button"
+                className={`catalog-trigger ${isCatalogActive ? "active" : ""}`}
+                aria-expanded={isCatalogHovered}
+                onClick={() => setIsCatalogHovered((prev) => !prev)}
+              >
+                <span>Catalog</span>
+                <svg className={`catalog-chevron ${isCatalogHovered ? "is-open" : ""}`} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              {isCatalogHovered && (
+                <div className="catalog-mega-menu">
+                  <div className="catalog-mega-grid">
+                    <Link
+                      to="/shop"
+                      className="catalog-mega-item"
+                      onClick={() => setIsCatalogHovered(false)}
+                    >
+                      <div className="catalog-mega-thumb">
+                        <img src={img("product/product1.webp")} alt="Perfume" />
+                      </div>
+                      <div className="catalog-mega-info">
+                        <strong>Perfume</strong>
+                        <span>Signature Luxury Fragrances</span>
+                      </div>
+                      <ArrowIcon />
+                    </Link>
+                    <Link
+                      to="/skin-care"
+                      className="catalog-mega-item"
+                      onClick={() => setIsCatalogHovered(false)}
+                    >
+                      <div className="catalog-mega-thumb">
+                        <img src={img("pack-1.png")} alt="Skin Care" />
+                      </div>
+                      <div className="catalog-mega-info">
+                        <strong>Skin Care</strong>
+                        <span>Hydrogel Sheet Mask Ritual</span>
+                      </div>
+                      <ArrowIcon />
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </li>
+            <li><NavLink to="/contact">Contact Us</NavLink></li>
           </ul>
           <div className="navbar__actions">
             <div className="icon-group">

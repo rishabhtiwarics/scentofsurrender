@@ -8290,6 +8290,207 @@ swiper-container {
 }
 
 /* ==========================================================================
+   Catalog Mega Menu (Header)
+   ========================================================================== */
+.catalog-dropdown-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.catalog-trigger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    color: inherit;
+    opacity: .88;
+    transition: opacity .25s ease, color .25s ease;
+}
+
+.catalog-trigger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width .3s ease;
+}
+
+.catalog-dropdown-wrapper:hover .catalog-trigger,
+.catalog-trigger.active {
+    opacity: 1;
+    color: #8d6b16;
+}
+
+.catalog-dropdown-wrapper:hover .catalog-trigger::after,
+.catalog-trigger.active::after {
+    width: 100%;
+}
+
+.catalog-chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform .25s ease;
+}
+
+.catalog-chevron.is-open {
+    transform: rotate(180deg);
+}
+
+.catalog-mega-menu::before {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 0;
+    right: 0;
+    height: 18px;
+    background: transparent;
+}
+
+.catalog-mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 16px;
+    width: 480px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(200, 162, 78, 0.32);
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(12, 20, 17, 0.14);
+    padding: 14px;
+    z-index: 120;
+    animation: catalogFadeIn 0.22s ease-out;
+}
+
+@keyframes catalogFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.catalog-mega-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.navbar__links .catalog-mega-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fff 0%, #fbf8f1 60%, #f4ecdc 100%);
+    border: 1px solid rgba(200, 162, 78, 0.22);
+    opacity: 1;
+    color: #22271f;
+    transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.navbar__links .catalog-mega-item::after {
+    display: none;
+}
+
+.navbar__links .catalog-mega-item:hover {
+    border-color: rgba(200, 162, 78, 0.65);
+    color: #8d6b16;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(12, 20, 17, 0.08);
+}
+
+.catalog-mega-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f4ecdc;
+    flex-shrink: 0;
+}
+
+.catalog-mega-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.catalog-mega-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.catalog-mega-info strong {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1f18;
+    line-height: 1.2;
+}
+
+.catalog-mega-info span {
+    font-size: 11px;
+    color: #6b685e;
+    line-height: 1.3;
+}
+
+.catalog-mega-item svg {
+    width: 15px;
+    height: 15px;
+    margin-left: auto;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.menu-sidebar__catalog-btn {
+    width: 100%;
+    text-align: left;
+}
+
+.menu-sidebar__sublinks {
+    background: rgb(250, 248, 243);
+}
+
+.menu-sidebar__sublink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 22px 12px 38px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #22271f;
+    border-bottom: 1px solid rgba(12, 20, 17, 0.05);
+    transition: background .2s ease, color .2s ease;
+}
+
+.menu-sidebar__sublink:hover,
+.menu-sidebar__sublink.active {
+    background: rgb(246, 243, 236);
+    color: #8d6b16;
+}
+
+.menu-sidebar__sublink svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+}
+
+/* ==========================================================================
    User Mega Menu (Header)
    ========================================================================== */
 .user-dropdown-wrapper {

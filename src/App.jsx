@@ -32,6 +32,7 @@ export default function App() {
       {!isAuthPage && <CartSidebar />}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/skin-care" element={<SheetMask />} />
         <Route path="/sheet-mask" element={<SheetMask />} />
         <Route path="/sheetmask" element={<SheetMask />} />
         <Route path="/arrival" element={<SheetMask />} />

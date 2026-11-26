@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ArrowIcon, CartIcon, CloseIcon } from "../icons/Icons.jsx";
 import { img } from "../../data/assets.js";
@@ -8,19 +8,12 @@ import { useAuth } from "../../context/AuthContext.jsx";
 export default function MenuSidebar() {
   const { isMenuOpen, closeMenu, openCart, cartCount } = useCart();
   const { isLoggedIn, user, login, logout } = useAuth();
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
 
   const handleOpenCart = () => {
     closeMenu();
     openCart();
   };
-
-  const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/sheet-mask", label: "Sheet Mask" },
-    { to: "/shop", label: "Catalog" },
-    { to: "/about", label: "About Us" },
-    { to: "/contact", label: "Contact" },
-  ];
 
   return (
     <>
@@ -56,18 +49,53 @@ export default function MenuSidebar() {
         <div className="menu-sidebar__main">
           <nav className="menu-sidebar__nav">
             <ul>
-              {navLinks.map((link, idx) => (
-                <li key={`${link.to}-${idx}`}>
-                  <NavLink
-                    to={link.to}
-                    onClick={closeMenu}
-                    className="menu-sidebar__link"
-                  >
-                    <span>{link.label}</span>
-                    <ArrowIcon />
-                  </NavLink>
-                </li>
-              ))}
+              <li>
+                <NavLink to="/" end onClick={closeMenu} className="menu-sidebar__link">
+                  <span>Home</span>
+                  <ArrowIcon />
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/about" onClick={closeMenu} className="menu-sidebar__link">
+                  <span>About Us</span>
+                  <ArrowIcon />
+                </NavLink>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => setIsCatalogOpen((prev) => !prev)}
+                  className="menu-sidebar__link menu-sidebar__catalog-btn"
+                  aria-expanded={isCatalogOpen}
+                >
+                  <span>Catalog</span>
+                  <svg className={`catalog-chevron ${isCatalogOpen ? "is-open" : ""}`} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                {isCatalogOpen && (
+                  <ul className="menu-sidebar__sublinks">
+                    <li>
+                      <NavLink to="/shop" onClick={closeMenu} className="menu-sidebar__sublink">
+                        <span>Perfume</span>
+                        <ArrowIcon />
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/skin-care" onClick={closeMenu} className="menu-sidebar__sublink">
+                        <span>Skin Care</span>
+                        <ArrowIcon />
+                      </NavLink>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <NavLink to="/contact" onClick={closeMenu} className="menu-sidebar__link">
+                  <span>Contact Us</span>
+                  <ArrowIcon />
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </div>
